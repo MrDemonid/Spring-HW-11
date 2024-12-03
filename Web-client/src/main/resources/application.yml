@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: "WEB-CLIENT"
+
+
+# actuator
+management:
+  endpoint:
+    health:
+      show-details: always
+    info:
+      access: read_only
+
+    prometheus:
+      access: read_only
+
+  # разрешаем отображение информации из info-секции файла настроек
+  info:
+    env:
+      enabled: true
+    java:
+      enabled: true    # это выведет в info информацию по JVM
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"      # info, metrics, health, prometheus, loggers, logfile
+#    jmx:
+#      exposure:
+#        exclude: "*"
+#  jmx:
+#    metrics:
+#      export:
+#        enabled: true
+
+info:
+  app:
+    name: "PK8000: magazine of games"
+    description: "Web client for my Spring Boot example"
+    version: "3.1"
+  developer:
+    name: "Andrey Hlus"
+    years: "49"
