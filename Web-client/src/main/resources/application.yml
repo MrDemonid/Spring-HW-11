@@ -6,16 +6,21 @@ spring:
     name: "WEB-CLIENT"
 
 
+# Настрока на Admin
+  boot:
+    admin:
+      client:
+        url: http://localhost:9050/admin
+
 # Настройки actuator и связанных с ним метрик.
 management:
   endpoint:
     health:
       show-details: always
     info:
-      access: read_only
-
+      access: unrestricted
     prometheus:
-      access: read_only
+      access: unrestricted
 
   # разрешаем отображение информации из info-секции файла настроек
   info:
