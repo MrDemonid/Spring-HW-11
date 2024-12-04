@@ -6,7 +6,7 @@ spring:
     name: "WEB-CLIENT"
 
 
-# actuator
+# Настройки actuator и связанных с ним метрик.
 management:
   endpoint:
     health:
@@ -27,7 +27,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"      # info, metrics, health, prometheus, loggers, logfile
+        include: info, metrics, health, prometheus, loggers, logfile, env, bean
 #    jmx:
 #      exposure:
 #        exclude: "*"
@@ -44,3 +44,7 @@ info:
   developer:
     name: "Andrey Hlus"
     years: "49"
+
+logging:
+  file:
+    name: logs/web-client.log   # будет так же доступен через веб-интерфейс: actuator/logfile

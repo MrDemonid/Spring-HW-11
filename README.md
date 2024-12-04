@@ -1,5 +1,49 @@
 # Задание: Используйте Spring Actuator для отслеживания метрик вашего приложения. Настройте визуализацию этих метрик с использованием Prometheus и Grafana.
 
+### Actuator
+
+Представлен в модуле `Web-client`. Содержит эндпоинты:
+- health
+- metrics
+- info
+- loggers
+- logfile
+- env
+- prometheus
+
+доступны по адресам: `/actuator/<имя эндпоинта>`
+
+Скриншоты в папке `/pics`
+
+### Micrometer
+
+Пример подключения в сервисе `Order-service`. В нем создаем кастомный класс `MicrometerService`,
+для замера времени выполнения какого-либо метода. 
+
+Для примера замеряем полное время выполнения
+покупки товара. 
+Скриншот в файле `/pics/micrometer-custom.png`
+
+### Prometheus
+Создаем имидж прометея из Dockerfile, в котором уже прописан настроенный prometheus.yml:
+```shell
+docker build -t hw-11-prometheus .
+```
+И запускаем его:
+```shell
+docker run -d -p 9090:9090 hw-11-prometheus
+```
+
+### Grafana
+Сначала собираем контейнер из docker-compose.yaml, для чего
+в терминале IDEA выполняем:
+```shell
+docker compose up -d
+```
+Через 2-3 минуты после старта контейнера можно
+открыть веб-интерфейс графаны:
+http://localhost:3000
+
 
 
 ## Модули.
